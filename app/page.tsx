@@ -1,3 +1,9 @@
-export default function Home() {
-  return <h1>Welcome home</h1>
+
+
+
+// app/page.tsx
+import LandingHero from "@/components/landingHero";
+
+export default function HomePage() {
+  return <LandingHero />;
 }

@@ -1,15 +1,24 @@
 // app/layout.js
-import '../app/globals.css'
+import "./globals.css";
+import { Metadata } from "next";
 
-export const metadata = {
-  title: 'My Next.js App',
-  description: 'Learning Next.js 16 with Turbopack',
-}
+export const metadata: Metadata = {
+  title:{
+    default: "",
+    template: "%s | Codevolution ",
+    absolute: "",
+
+
+    },
+  description: "Student Result Processing Portal - Adeyemi Federal University of Education, Nigeria",
+};
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+      </body>
     </html>
-  )
+  );
 }
