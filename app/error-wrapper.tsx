@@ -1,0 +1,42 @@
+"use client";
+
+import "./globals.css";
+import { useState } from "react";
+
+interface WrapperProps {
+  children: React.ReactNode;
+}
+
+const ErrorSimulator = ({
+     message = "An error occurred" ,
+    }: {
+         message?: string 
+}) => {
+  const [hasError, setHasError] = useState(false);
+
+  if (hasError) throw new Error(message);
+
+  return (
+    <button
+      title="Simulate an error"
+      className="bg-red-900 text-white rounded p-2 leading-none font-semibold text-sm"
+      onClick={() => setHasError(true)}
+    >
+      Simulate Error
+    </button>
+  );
+};
+
+export const ErrorWrapper = ({ children }: WrapperProps) => {
+  return (
+    <div className="flex flex-col rounded-lg mt-8 relative p-4 border border-gray-200">
+      <div className="absolute top-0 left-4 -translate-y-1/2">
+        <ErrorSimulator message="Simulates error in root layout" />
+      </div>
+
+      {children}
+    </div>
+  );
+};
+
+

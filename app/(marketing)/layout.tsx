@@ -1,12 +1,12 @@
-// app/layout.js
-import '../app/globals.css'
+import '../globals.css'
+import { ReactNode } from "react";
 
 export const metadata = {
   title: 'My Next.js App',
   description: 'Learning Next.js 16 with Turbopack',
 }
 
-export default function MarketingLayout({ children }) {
+export default function MarketingLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>

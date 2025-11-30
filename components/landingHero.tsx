@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { GraduationCap, RefreshCcw } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ErrorWrapper } from "../app/error-wrapper"
+
+
 
 export function SidebarV3() {
   return (
@@ -18,39 +21,70 @@ export function SidebarV3() {
   );
 }
 
-export default function LandingHero() {
+export default function LandingHero({ children }: { children: React.ReactNode }) {
   return (
-    <section className="bg-gradient-to-b from-blue-50 to-white py-20 text-center">
-      <div className="max-w-3xl mx-auto px-6">
-        <GraduationCap className="w-16 h-16 text-blue-600 mx-auto mb-4" />
+    <div className="min-h-screen flex flex-col">
+      
+      {/* HEADER */}
+      <header
+        style={{
+          backgroundColor: "lightblue",
+          padding: "1rem",
+        }}
+        className="w-full"
+      >
+        <p className="text-gray-800 font-semibold">Header</p>
+      </header>
 
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">
-          Adeyemi Federal University of Education
-        </h1>
+      {/* ERROR WRAPPER */}
+      <ErrorWrapper>
+        {children}
+      </ErrorWrapper>
 
-        <p className="text-lg text-gray-600 mb-8">
-          Welcome to the Student Result Processing Portal.
-        </p>
+      {/* HERO SECTION */}
+      <section className="bg-gradient-to-b from-blue-50 to-white py-20 text-center flex-grow">
+        <div className="max-w-3xl mx-auto px-6">
+          <GraduationCap className="w-16 h-16 text-blue-600 mx-auto mb-4" />
 
-        <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg">
-          Check Result
-        </Button>
+          <h1 className="text-4xl font-bold text-gray-800 mb-4">
+            Adeyemi Federal University of Education
+          </h1>
 
-        <div className="mt-6 space-y-2">
-          <Link href="/blog" className="block text-blue-600 hover:underline">
-            Visit our Blog
-          </Link>
+          <p className="text-lg text-gray-600 mb-8">
+            Welcome to the Student Result Processing Portal.
+          </p>
 
-          <div className="flex justify-center gap-4 text-blue-600">
-            <Link href="/articles/breaking-news-123?lang=eng" className="hover:underline">
-              Read in English
+          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg">
+            Check Result
+          </Button>
+
+          <div className="mt-6 space-y-2">
+            <Link href="/blog" className="block text-blue-600 hover:underline">
+              Visit our Blog
             </Link>
-            <Link href="/articles/breaking-news-123?lang=fr" className="hover:underline">
-              Read in French
-            </Link>
+
+            <div className="flex justify-center gap-4 text-blue-600">
+              <Link href="/articles/breaking-news-123?lang=eng" className="hover:underline">
+                Read in English
+              </Link>
+              <Link href="/articles/breaking-news-123?lang=fr" className="hover:underline">
+                Read in French
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* FOOTER */}
+      <footer
+        style={{
+          backgroundColor: "lightgray",
+          padding: "1rem",
+        }}
+        className="w-full text-center"
+      >
+        <p className="text-gray-700">Footer</p>
+      </footer>
+    </div>
   );
 }
